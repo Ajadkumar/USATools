@@ -1,5 +1,5 @@
 <!-- Replace 'YOUR_ADSTTRA_DIRECT_LINK' with your real direct link -->
-<script>
+<script>https://denialtransportationfair.com/p23e981d?key=e35ec5cecd79cd0e6b939867910e619e
   function compressImageWithAd() {
     const file = document.getElementById("imageInput").files[0];
     const quality = document.getElementById("compressionRange").value / 100;
@@ -39,3 +39,4 @@
     }, 1000); // 1-second delay to prioritize ad click
   }
 </script>
+https://denialtransportationfair.com/p23e981d?key=e35ec5cecd79cd0e6b939867910e619e
