@@ -1,0 +1,41 @@
+<!-- Replace 'YOUR_ADSTTRA_DIRECT_LINK' with your real direct link -->
+<script>
+  function compressImageWithAd() {
+    const file = document.getElementById("imageInput").files[0];
+    const quality = document.getElementById("compressionRange").value / 100;
+
+    if (!file) {
+      alert("Please select an image.");
+      return;
+    }
+
+    // 🔁 Open Adsttra Direct Link in new tab (this counts as a click)
+    window.open("https://www.profitabledisplaynetwork.com/YOUR_ADSTTRA_DIRECT_LINK", "_blank");
+
+    // ⏱️ Continue compression after short delay (to ensure ad is triggered)
+    setTimeout(() => {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const img = new Image();
+        img.src = e.target.result;
+
+        img.onload = function () {
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+
+          const compressedDataUrl = canvas.toDataURL("image/jpeg", quality);
+          document.getElementById("compressedImg").src = compressedDataUrl;
+
+          const downloadBtn = document.getElementById("downloadBtn");
+          downloadBtn.href = compressedDataUrl;
+          downloadBtn.style.display = "inline-block";
+        };
+      };
+      reader.readAsDataURL(file);
+    }, 1000); // 1-second delay to prioritize ad click
+  }
+</script>
