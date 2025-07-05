@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="High-quality image compression tool optimized for USA traffic with ad click support." />
+  <meta name="keywords" content="USA image compressor, high quality image tool, ad click monetization, SEO image optimization" />
+  <meta name="author" content="USA Compression Tool" />
+  <title>USA Traffic Image Compression Tool</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 20px;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #0066cc;
+      text-align: center;
+    }
+
+    input[type="file"], input[type="range"], button {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    #output img {
+      max-width: 100%;
+      margin-top: 20px;
+    }
+
+    .download-btn {
+      display: none;
+      background: #28a745;
+      color: white;
+      padding: 12px;
+      text-align: center;
+      border-radius: 6px;
+      margin-top: 15px;
+      text-decoration: none;
+    }
+
+    .ads {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #777;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🇺🇸 USA Traffic Image Compression Tool</h1>
+    <p>Select an image, adjust compression level, and compress it in high quality. Monetized for USA traffic.</p>
+
+    <input type="file" id="imageInput" accept="image/*" />
+    <label for="compressionRange">Compression Level: <span id="compressionLabel">80%</span></label>
+    <input type="range" id="compressionRange" min="10" max="100" value="80" step="1" />
+
+    <button onclick="compressImageWithAd()">Compress Image</button>
+
+    <div id="output">
+      <h3>Compressed Image Preview</h3>
+      <img id="compressedImg" />
+      <a id="downloadBtn" class="download-btn" download="compressed-image.jpg">Download Compressed Image</a>
+    </div>
+
+    <div class="ads">
+      <!-- Optional Banner Ad -->
+      <script type="text/javascript">
+        atOptions = {
+          'key' : 'YOUR_ADSTTRA_BANNER_UNIT_ID',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+        document.write('<scr' + 'ipt type="text/javascript" src="//www.profitabledisplaynetwork.com/' + atOptions.key + '/invoke.js"></scr' + 'ipt>');
+      </script>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 USA Image Compressor | High Quality • SEO • Monetized
+  </footer>
+
+  <script>
+    const compressionLabel = document.getElementById("compressionLabel");
+    const compressionRange = document.getElementById("compressionRange");
+    const downloadBtn = document.getElementById("downloadBtn");
+
+    compressionRange.oninput = () => {
+      compressionLabel.textContent = compressionRange.value + "%";
+    };
+
+    function compressImageWithAd() {
+      const file = document.getElementById("imageInput").files[0];
+      const quality = compressionRange.value / 100;
+
+      if (!file) {
+        alert("Please select an image.");
+        return;
+      }
+
+      // 👇 Open Adsttra Direct Link Ad
+      window.open("https://www.profitabledisplaynetwork.com/YOUR_ADSTTRA_DIRECT_LINK", "_blank");
+
+      // Wait and compress after ad click
+      setTimeout(() => {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const img = new Image();
+          img.src = e.target.result;
+
+          img.onload = function () {
+            const canvas = document.createElement("canvas");
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(img, 0, 0);
+
+            const compressedDataUrl = canvas.toDataURL("image/jpeg", quality);
+            document.getElementById("compressedImg").src = compressedDataUrl;
+            downloadBtn.href = compressedDataUrl;
+            downloadBtn.style.display = "inline-block";
+          };
+        };
+        reader.readAsDataURL(file);
+      }, 1000); // 1-second delay for ad click to register
+    }
+  </script>
+
+</body>
+</html>
